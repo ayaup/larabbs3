@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;;
 
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use Notifiable, MustVerifyEmailTrait;
 
@@ -38,4 +38,9 @@ class User extends Authenticatable
     // protected $casts = [
     //     'email_verified_at' => 'datetime',
     // ];
+
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }
